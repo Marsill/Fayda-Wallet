@@ -60,16 +60,16 @@ This directly supports Ethiopia’s national goal of digital transformation and 
 
 ## 🛠️ Tech Stack
 
-| Component             | Technology                            |
-| --------------------- | ------------------------------------- |
-| Mobile App            | Flutter (Dart), flutter_barcode_sdk   |
-| Backend & Auth        | Firebase (Auth, Firestore, Functions) |
-| Encryption            | AES encryption, SHA256 for hashing    |
-| Blockchain Simulation | Local hash-based verification ledger  |
-| Multi-ID Structure    | JSON + Firestore schema design        |
-| Digital Consent Logs  | Firestore logging + real-time UI      |
-| Biometric Auth        | Flutter biometric plugins             |
-| UI/UX Prototyping     | Figma                                 |
-| Version Control       | Git + GitHub                          |
+| Component             | Technology                                                  |
+| --------------------- | -------------------------------------                       |
+| Mobile App            |React Native (Expo), JavaScript/TypeScript, expo-barcode-scanner  |
+| Backend & Auth        |Supabase, Custom API, or Firebase; Expo Local Authentication, VeriFayda OIDC |
+| Encryption            | AES encryption, SHA256 for hashing                          |
+| Blockchain Simulation | Local hash-based verification ledger                        |
+| Multi-ID Structure    | JSON-based state, custom backend                            |
+| Digital Consent Logs  | Local storage, custom backend, real-time UI with React      |
+| Biometric Auth        | Expo Local Authentication                                   |
+| UI/UX Prototyping     | Figma                                                       |
+| Version Control       | Git + GitHub                                                |
 
 ---
