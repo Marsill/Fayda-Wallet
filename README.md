@@ -1,75 +1,182 @@
-# 🪪 Digital Fayda Wallet – Secure ID for Seamless Services
+# Digital Fayda Wallet 🪪
 
-## 👥 Contributors
+A secure mobile wallet application for storing and verifying Ethiopian Fayda ID digitally. Built with React Native Expo for cross-platform compatibility.
 
-- Marsilas Wondimagegnehu
-- Melat Mekonnen
+## 🔍 Project Overview
+
+The Digital Fayda Wallet addresses the problem of physical ID card dependency by providing a secure, biometric-protected digital alternative. Citizens can store their Fayda ID on their mobile device and generate secure QR codes for real-time verification by institutions.
+
+## ✨ Core Features
+
+- **Secure ID Storage**: Biometric/PIN protected digital ID storage
+- **QR Code Generation**: Time-limited, encrypted QR codes for verification
+- **Digital Consent System**: User-controlled access permissions
+- **Multi-ID Support**: Store Fayda ID, driver's license, passport, and more
+- **Blockchain-style Logging**: Tamper-proof verification audit trail
+- **Real-time Verification**: Instant ID verification for institutions
+- **Cross-platform**: Works on iOS, Android, and Web
+
+## 🛠️ Technology Stack
+
+| Component | Technology |
+|-----------|------------|
+| Frontend | React Native Expo |
+| Authentication | Expo Local Authentication, VeriFayda OIDC |
+| Security | AES encryption simulation, SHA256 hashing |
+| State Management | React Context & Hooks |
+| UI Components | Custom components with Lucide icons |
+| Platform Support | iOS, Android, Web |
+
+## 📱 App Structure
+
+```
+app/
+├── (tabs)/
+│   ├── index.tsx          # Main wallet with ID cards
+│   ├── verify.tsx         # QR generation and scanning
+│   ├── consent.tsx        # Digital consent management
+│   ├── logs.tsx           # Verification audit logs
+│   └── settings.tsx       # App settings and security
+components/
+├── IDCard.tsx             # Digital ID card component
+├── AddIDModal.tsx         # Add new ID modal
+├── QRGenerator.tsx        # Secure QR code generator
+└── QRScanner.tsx          # QR code scanner
+services/
+└── AuthService.ts         # Authentication and security
+```
+
+## 🚀 Installation and Deployment
+
+### Prerequisites
+
+- Node.js 18+ installed
+- Expo CLI installed globally: `npm install -g @expo/cli`
+- For mobile testing: Expo Go app on your device
+
+### Local Development
+
+1. **Clone and install dependencies**:
+   ```bash
+   git clone <repository-url>
+   cd digital-fayda-wallet
+   npm install
+   ```
+
+2. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Access the application**:
+   - **Web**: Open `http://localhost:19006` in your browser
+   - **Mobile**: Scan QR code with Expo Go app
+   - **iOS Simulator**: Press `i` in terminal
+   - **Android Emulator**: Press `a` in terminal
+
+### Production Deployment
+
+#### Docker Deployment (Web)
+
+1. **Build and run with Docker Compose**:
+   ```bash
+   docker-compose up --build
+   ```
+
+2. **Access the application**:
+   - Open `http://localhost:3000` in your browser
+
+#### Manual Web Deployment
+
+1. **Build for production**:
+   ```bash
+   npm run build:web
+   ```
+
+2. **Deploy the `dist` folder** to any static hosting service (Netlify, Vercel, etc.)
+
+#### Mobile App Deployment
+
+For mobile app stores, you'll need to create a production build:
+
+1. **Create development build**:
+   ```bash
+   expo install --fix
+   expo build:android  # or expo build:ios
+   ```
+
+2. **Follow Expo's deployment guide** for app store submission
+
+## 🔐 Security Features
+
+- **Biometric Authentication**: Fingerprint/Face ID protection
+- **Data Encryption**: All sensitive data encrypted at rest
+- **Secure QR Codes**: Time-limited, hash-verified QR codes
+- **Audit Logging**: Complete tamper-proof activity logs
+- **Digital Consent**: User-controlled access permissions
+- **Hash Verification**: Blockchain-style integrity checks
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+EXPO_PUBLIC_API_URL=https://your-api-endpoint.com
+EXPO_PUBLIC_SUPABASE_URL=your-supabase-url
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your-supabase-key
+```
+
+### VeriFayda OIDC Integration
+
+The app supports VeriFayda OIDC authentication. Configure the OIDC settings in your environment variables or contact the development team for integration assistance.
+
+## 🧪 Testing
+
+Run the application locally and test the following workflows:
+
+1. **Authentication Flow**: Biometric login simulation
+2. **ID Management**: Add, view, and manage digital IDs
+3. **QR Generation**: Create and refresh secure QR codes
+4. **Consent Management**: Approve/deny access requests
+5. **Audit Logging**: View verification activity logs
+
+## 📚 API Integration
+
+The app is designed to integrate with:
+
+- **VeriFayda OIDC**: For government authentication
+- **Ethiopian National ID Database**: For ID verification
+- **Institutional APIs**: For real-time verification requests
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## 👥 Team
+
+- **Marsilas Wondimagegnehu** - Lead Developer
+- **Melat Mekonnen** - Co-Developer
+
+## 📄 License
+
+This project is part of the Ethiopian Digital Transformation initiative and follows government software licensing guidelines.
+
+## 🆘 Support
+
+For technical support or questions:
+
+- Create an issue in the repository
+- Contact the development team
+- Refer to the Expo documentation for platform-specific issues
 
 ---
 
-## 📘 Project Synopsis
+**Built for Ethiopian Digital Transformation 🇪🇹**
 
-### 🔍 Problem Statement
-
-Ethiopian citizens often rely on **physical Fayda ID cards** to access basic services like banking, telecom, and government offices. These cards can be easily forgotten, lost, or damaged — and there's currently **no secure and user-friendly digital alternative**. Institutions also lack a fast, verifiable, and privacy-respecting way to confirm ID ownership in real time.
-
----
-
-### 💡 Planned Solution
-
-We are building a **mobile wallet app** that allows users to store their Fayda ID digitally on their phone, protected by biometric login or PIN. The app generates a **secure QR code** that banks or institutions can scan to verify the user.
-
-To enhance functionality and trust, we are adding:
-
-- **Digital consent**: Users approve or deny each access attempt
-- **Blockchain-style verification**: Each scan generates a verifiable hash stored in a tamper-proof log
-- **Multi-ID support**: Store not just Fayda, but other essential IDs like driver’s license
-
----
-
-### 🎯 Expected Outcome
-
-By the end of the hackathon, we expect to deliver:
-
-- A functional mobile app that:
-
-  - Stores Fayda ID data securely
-  - Displays encrypted QR for verification
-  - Uses biometric/PIN login for access
-  - Supports digital consent and logging
-
-- A working web verifier portal that:
-  - Scans the QR code
-  - Displays verified data from backend
-  - Simulates ID verification
-
----
-
-### 🪪 Fayda’s Role
-
-Fayda is at the center of our solution. We are building a secure, accessible, and scalable interface around the Fayda ID system to:
-
-- Promote **digital adoption** of national ID
-- Enable secure and **real-time verification**
-- Increase **citizen trust** in government-issued IDs
-- Lay a foundation for **future integrations** (healthcare, education, elections)
-
-This directly supports Ethiopia’s national goal of digital transformation and expands the usability of Fayda in everyday life.
-
----
-
-## 🛠️ Tech Stack
-
-| Component             | Technology                                                  |
-| --------------------- | -------------------------------------                       |
-| Mobile App            |React Native (Expo), JavaScript/TypeScript, expo-barcode-scanner  |
-| Backend & Auth        |Supabase, Custom API, or Firebase; Expo Local Authentication, VeriFayda OIDC |
-| Encryption            | AES encryption, SHA256 for hashing                          |
-| Blockchain Simulation | Local hash-based verification ledger                        |
-| Multi-ID Structure    | JSON-based state, custom backend                            |
-| Digital Consent Logs  | Local storage, custom backend, real-time UI with React      |
-| Biometric Auth        | Expo Local Authentication                                   |
-| UI/UX Prototyping     | Figma                                                       |
-| Version Control       | Git + GitHub                                                |
-
----
+*Secure • Accessible • Trustworthy*
