@@ -161,7 +161,9 @@ The app is designed to integrate with:
 ## 👥 Team
 
 - **Marsilas Wondimagegnehu** - Lead Developer
+- Gmail= marsilasw0@gmail.com
 - **Melat Mekonnen** - Co-Developer
+- Gmail=  melatmek8@gmail.com
 
 ## 📄 License
 
